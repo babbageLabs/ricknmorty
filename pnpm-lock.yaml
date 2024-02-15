@@ -179,6 +179,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      rickmortyapi:
+        specifier: ^2.3.0
+        version: 2.3.0
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -4217,7 +4220,6 @@ packages:
   /rickmortyapi@2.3.0:
     resolution: {integrity: sha512-YSAwmxS1OFRO1gYzxyZpijGXXJ5z1yDGT8U5kYqP5Qc4T3uWWQyQk8L7ty6R0HigIrGIXzht6xBpmshGhqn5sg==}
     engines: {node: '>= 18'}
-    dev: false
 
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
