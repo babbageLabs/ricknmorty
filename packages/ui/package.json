@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./header": "./src/header.tsx"
+    "./header": "./src/header.tsx",
+    "./searchBar.tsx": "./src/searchBar.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

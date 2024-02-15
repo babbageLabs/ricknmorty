@@ -1,4 +1,5 @@
 import { Header } from "@repo/ui/header";
+import { SearchBar } from "@repo/ui/searchBar.tsx";
 
 export default function Page(): JSX.Element {
   return (
@@ -15,6 +16,9 @@ export default function Page(): JSX.Element {
           </ul>
         </nav>
       </Header>
+      <section>
+        <SearchBar />
+      </section>
     </main>
   );
 }
