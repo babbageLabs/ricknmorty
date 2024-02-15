@@ -1,5 +1,5 @@
 {
-  "name": "rnm",
+  "name": "rick-n-morty",
   "private": true,
   "scripts": {
     "build": "turbo build",
