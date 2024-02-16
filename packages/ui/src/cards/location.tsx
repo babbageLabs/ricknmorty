@@ -2,16 +2,19 @@ import { PlanetIcon } from '../icons'
 import {
     Location
 } from 'rickmortyapi'
+import { useEffect } from 'react'
 
 
 export function LocationCard({
     location,
-    onClick
+    onClick,
+    selected
 }: {
     location: Location,
-    onClick: (location: Location) => void
+    onClick: (location: Location) => void,
+    selected?: Location
 }): JSX.Element {
-    return (<div className="max-w-sm w-full lg:max-w-full flex w-full" onClick={() => { onClick(location) }}>
+    return (<div className={`max-w-sm w-full lg:max-w-full flex w-full  ${location.id === selected?.id ? 'bg-blue-600' : ''}`} onClick={() => { onClick(location) }}>
         <div className="h-48 lg:h-auto lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l" title="Woman holding a mug">
             {/* <image href={location.residents[0] || "#"} alt="rickmorty" width={"100"} height={"200"} /> */}
         </div>

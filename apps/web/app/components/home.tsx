@@ -23,15 +23,19 @@ export function Home({
             <article className="h-full flex-1 ">
                 <h1>Locations</h1>
                 <Grid>
-                    {locations.map((location) => (
+                    {locations.map((loc) => (
                         <div className="rounded w-full p-1">
-                            <LocationCard key={`location-${location.id}`} location={location} onClick={onPreview} />
+                            <LocationCard
+                                selected={location}
+                                key={`location-${loc.id}`}
+                                location={loc}
+                                onClick={onPreview} />
                         </div>
                     ))}
                 </Grid>
             </article>
 
-            <aside className="w-1/3 h-full overflow-y-hidden">
+            <aside className="w-1/2 h-full overflow-y-hidden">
                 <h2>Aside</h2>
                 {!!location && <LocationPreview location={location} />}
             </aside>
