@@ -7,6 +7,7 @@ import { KV } from "@repo/ui/kv";
 import { Grid } from "@repo/ui/grid";
 import { EpisodeCard } from "@repo/ui/cards";
 import { ClientWrapper } from "../../_components/clientWrapper"
+import { Notes } from "@repo/ui/notes";
 
 export default async function Page({
     params
@@ -48,7 +49,7 @@ export default async function Page({
                         {
                             label: "About",
                             content: (
-                                <div>
+                                <div className="flex flex-col justify-center">
                                     <KV label="Gender">
                                         {character.gender}
                                     </KV>
@@ -67,7 +68,7 @@ export default async function Page({
                                 <div>
                                     <ClientWrapper>
                                         <Grid>
-                                            <div className='flex flex-wrap justify-center items-center p-2'>
+                                            <div className='flex flex-wrap justify-center p-2'>
                                                 {character.episode.map((episode, i) => (<EpisodeCard
                                                     key={`episode-${i}`} url={episode}
                                                 />))}
@@ -79,12 +80,7 @@ export default async function Page({
                         },
                         {
                             label: "Notes",
-                            content: (
-                                <div>
-                                    <h2 className="text-xl font-bold">Notes</h2>
-                                    <p>Notes</p>
-                                </div>
-                            )
+                            content: (<Notes notesId={`notes-${charId}`} />)
                         }
                     ]}
                 />

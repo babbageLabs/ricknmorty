@@ -10,7 +10,8 @@
     "./icons": "./src/index.tsx",
     "./tabs": "./src/tabs.tsx",
     "./breadcrumbs": "./src/breadcrumbs.tsx",
-    "./kv": "./src/keyValue.tsx"
+    "./kv": "./src/keyValue.tsx",
+    "./notes": "./src/notes.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
