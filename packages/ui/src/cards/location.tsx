@@ -1,3 +1,4 @@
+'use client'
 import { PlanetIcon } from '../icons'
 import {
     Location

@@ -1,4 +1,5 @@
-import { useEffect, useId, useRef, useState } from "react";
+'use client';
+import { useEffect, useId, useRef } from "react";
 
 export function Grid({
   children,
@@ -7,12 +8,12 @@ export function Grid({
   children: React.ReactNode;
   onLoadMore?: () => void;
 }): JSX.Element {
-  const lastElementRef = useRef<HTMLDivElement | null>(null);
+  // const lastElementRef = useRef<HTMLDivElement | null>(null);
   const id = useId();
   const observerTarget = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<null | { message: string }>(null);
-  const [page, setPage] = useState(1);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState<null | { message: string }>(null);
+  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

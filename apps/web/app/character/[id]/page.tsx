@@ -4,6 +4,9 @@ import { Breadcrumbs } from "@repo/ui/breadcrumbs";
 import { getCharacter } from "rickmortyapi"
 import Image from "next/image";
 import { KV } from "@repo/ui/kv";
+import { Grid } from "@repo/ui/grid";
+import { EpisodeCard } from "@repo/ui/cards";
+import { ClientWrapper } from "../../_components/clientWrapper"
 
 export default async function Page({
     params
@@ -62,8 +65,15 @@ export default async function Page({
                             label: "Episodes",
                             content: (
                                 <div>
-                                    <h2 className="text-xl">Episodes</h2>
-                                    <p>Episodes</p>
+                                    <ClientWrapper>
+                                        <Grid>
+                                            <div className='flex flex-wrap justify-center items-center p-2'>
+                                                {character.episode.map((episode, i) => (<EpisodeCard
+                                                    key={`episode-${i}`} url={episode}
+                                                />))}
+                                            </div>
+                                        </Grid>
+                                    </ClientWrapper>
                                 </div>
                             )
                         },
