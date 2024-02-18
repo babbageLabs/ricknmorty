@@ -8,7 +8,9 @@
     "./grid": "./src/grid.tsx",
     "./cards": "./src/cards/index.tsx",
     "./icons": "./src/index.tsx",
-    "./tabs": "./src/tabs.tsx"
+    "./tabs": "./src/tabs.tsx",
+    "./breadcrumbs": "./src/breadcrumbs.tsx",
+    "./kv": "./src/keyValue.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
