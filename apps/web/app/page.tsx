@@ -1,7 +1,7 @@
 import { Header } from "@repo/ui/header";
 import { SearchBar } from "@repo/ui/searchBar";
 import { getLocations } from "rickmortyapi"
-import { Home } from "./components/home"
+import { Home } from "./_components/home"
 
 export default async function Page(): Promise<JSX.Element> {
 
@@ -14,10 +14,8 @@ export default async function Page(): Promise<JSX.Element> {
     console.log("submit", l);
   }
 
-  console.log("locations", locations.results);
-
   return (
-    <main className="h-full w-full p-2 overflow-x-hidden overflow-y-hidden">
+    <main className="h-full w-full px-2 overflow-x-hidden overflow-y-hidden flex flex-col">
       <section className="w-full">
         <Header>
           <nav className="flex w-full">
@@ -26,7 +24,7 @@ export default async function Page(): Promise<JSX.Element> {
         </Header>
       </section>
 
-      <section className="w-full flex overflow-x-hidden overflow-y-hidden h-full justify-center items-center">
+      <section className="w-full flex overflow-x-hidden overflow-y-auto h-full justify-center items-center">
         <Home locations={locations.results || []} />
       </section>
     </main>

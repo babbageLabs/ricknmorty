@@ -7,7 +7,8 @@
     "./searchBar": "./src/searchBar.tsx",
     "./grid": "./src/grid.tsx",
     "./cards": "./src/cards/index.tsx",
-    "./icons": "./src/index.tsx"
+    "./icons": "./src/index.tsx",
+    "./tabs": "./src/tabs.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -17,7 +18,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "next": "^14.0.4"
-    
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

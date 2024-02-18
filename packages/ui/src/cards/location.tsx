@@ -14,11 +14,11 @@ export function LocationCard({
     onClick: (location: Location) => void,
     selected?: Location
 }): JSX.Element {
-    return (<div className={`max-w-sm w-full lg:max-w-full flex w-full  ${location.id === selected?.id ? 'bg-blue-600' : ''}`} onClick={() => { onClick(location) }}>
+    return (<div className={`max-w-sm p-1 w-full lg:max-w-full flex w-full  ${location.id === selected?.id ? 'bg-blue-600' : ''}`} onClick={() => { onClick(location) }}>
         <div className="h-48 lg:h-auto lg:w-48 flex-none rounded-t lg:rounded-t-none lg:rounded-l" title="Woman holding a mug">
             {/* <image href={location.residents[0] || "#"} alt="rickmorty" width={"100"} height={"200"} /> */}
         </div>
-        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal flex-1">
+        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-2 flex flex-col justify-between leading-normal flex-1">
             <div className="">
                 <p className="text-sm text-gray-600 flex items-center">
                     <PlanetIcon width='50px' height='40px' />

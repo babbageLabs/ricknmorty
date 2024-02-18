@@ -19,12 +19,16 @@ export function Home({
 
 
     return (
-        <section className="w-full flex overflow-x-hidden overflow-y-hidden h-full justify-center items-center">
-            <article className="h-full flex-1 ">
+        <section className="flex overflow-x-hidden overflow-y-hidden w-full h-full">
+            <article className="h-full flex-1 overflow-y-auto ">
                 <h1>Locations</h1>
-                <Grid>
+                <Grid
+                    onLoadMore={() => {
+                        console.log("load more", 11111111111111111111111)
+                    }}
+                >
                     {locations.map((loc) => (
-                        <div className="rounded w-full p-1">
+                        <div className="rounded w-full">
                             <LocationCard
                                 selected={location}
                                 key={`location-${loc.id}`}
@@ -35,7 +39,7 @@ export function Home({
                 </Grid>
             </article>
 
-            <aside className="w-1/2 h-full overflow-y-hidden">
+            <aside className="w-2/3 h-full overflow-y-hidden">
                 <h2>Aside</h2>
                 {!!location && <LocationPreview location={location} />}
             </aside>

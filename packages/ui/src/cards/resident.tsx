@@ -16,7 +16,6 @@ export function ResidentCard({
 
 
     useEffect(() => {
-        console.log("location", location);
         let id = url.split('/').pop();
 
         if (!id || isNaN(+id)) {
@@ -36,7 +35,7 @@ export function ResidentCard({
     return (
         <>
             {resident && !isLoading ? (
-                <div className="max-w-sm rounded overflow-hidden shadow w-full p-1 items-center justify-center">
+                <div className="max-w-sm rounded overflow-hidden shadow p-2 m-1">
                     <Image
                         className="rounded"
                         height={300}
@@ -45,7 +44,7 @@ export function ResidentCard({
                         alt={resident?.name}
                         loading='lazy'
                     />
-                    <div className="px-6 py-4">
+                    <div className="px-6 py-4 w-auto">
                         <div className="font-bold text-xl z-10 mt-2 text-blue-500 hover:underline hover:text-green hover:shadow-text-lg">{resident?.name}</div>
                     </div>
                     <div className="p-1">
