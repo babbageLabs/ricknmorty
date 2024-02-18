@@ -1,5 +1,7 @@
 import { Header } from "@repo/ui/header";
 import { SearchBar } from "@repo/ui/searchBar";
+import { SearchCmd } from "@repo/ui/SearchCmd";
+
 import { getLocations } from "rickmortyapi"
 import { Home } from "./_components/home"
 
@@ -17,10 +19,8 @@ export default async function Page(): Promise<JSX.Element> {
   return (
     <main className="h-full w-full px-2 overflow-x-hidden overflow-y-hidden flex flex-col">
       <section className="w-full">
-        <Header>
-          <nav className="flex w-full">
-            <SearchBar onSubmit={onSubmit} />
-          </nav>
+        <Header >
+          <div className="flex-1" />
         </Header>
       </section>
 

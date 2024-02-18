@@ -11,16 +11,17 @@
     "./tabs": "./src/tabs.tsx",
     "./breadcrumbs": "./src/breadcrumbs.tsx",
     "./kv": "./src/keyValue.tsx",
-    "./notes": "./src/notes.tsx"
+    "./notes": "./src/notes.tsx",
+    "./SearchCmd": "./src/search.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
+    "next": "^14.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "next": "^14.0.4"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -34,5 +35,8 @@
     "react": "^18.2.0",
     "rickmortyapi": "^2.3.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "cmdk": "^0.2.1"
   }
 }
