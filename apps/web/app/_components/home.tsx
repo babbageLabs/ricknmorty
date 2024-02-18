@@ -21,17 +21,16 @@ export function Home({
     return (
         <section className="flex overflow-x-hidden overflow-y-hidden w-full h-full">
             <article className="h-full flex-1 overflow-y-auto ">
-                <h1>Locations</h1>
+                <div className="w-full h-20 bg-gray-200 flex justify-center items-center rounded py-1" style={{ position: 'sticky', top: 0 }}>
+                    <h1>Locations</h1>
+                </div>
                 <Grid
-                    onLoadMore={() => {
-                        console.log("load more", 11111111111111111111111)
-                    }}
+                    onLoadMore={() => { }}
                 >
                     {locations.map((loc) => (
-                        <div className="rounded w-full">
+                        <div key={`location-${loc.id}`} id={`location-${loc.id}`} className="rounded w-full ">
                             <LocationCard
                                 selected={location}
-                                key={`location-${loc.id}`}
                                 location={loc}
                                 onClick={onPreview} />
                         </div>
@@ -40,7 +39,9 @@ export function Home({
             </article>
 
             <aside className="w-2/3 h-full overflow-y-hidden">
-                <h2>Aside</h2>
+                <div className="w-full h-20 bg-gray-200 flex justify-center items-center rounded py-1">
+                    <h1>Location Preview</h1>
+                </div>
                 {!!location && <LocationPreview location={location} />}
             </aside>
         </section>

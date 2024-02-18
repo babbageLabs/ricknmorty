@@ -21,7 +21,7 @@ export const Notes = (props: NotesProps) => {
         localStorage.setItem(props.notesId, JSON.stringify(notes));
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setInputValue(e.target.value);
     };
 
@@ -41,10 +41,9 @@ export const Notes = (props: NotesProps) => {
     return (
         <div className="flex flex-col items-center ">
             <label htmlFor="note-input" className="mb-2">Add a note</label>
-            <input
+            <textarea
                 id='note-input'
                 placeholder=''
-                type="text"
                 value={inputValue}
                 onChange={handleInputChange}
                 onKeyDown={(e) => {
@@ -52,10 +51,10 @@ export const Notes = (props: NotesProps) => {
                         handleAddNote();
                     }
                 }}
-                className="border border-gray-300 rounded px-2 py-1 mb-2"
+                className="border border-gray-300 rounded px-2 py-1 mb-2 w-2/3"
             />
             <button type='button' onClick={handleAddNote} className="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add </button>
-            <ul className="justify-center p-2 items-center w-1/2">
+            <ul className="justify-center p-2 w-2/3 justify-between">
                 {notes.map((note, index) => (
                     <li key={index} className="flex items-center justify-between border-b border-gray-300 py-2 justify-center">
                         <span>{note}</span>

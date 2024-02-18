@@ -14,7 +14,7 @@ export function Tabs({ tabs }: TabsProps): JSX.Element {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className='flex flex-col justify-center'>
+    <div className='flex flex-col  w-full h-full'>
       <div className="flex border-b">
         {tabs.map((tab, index) => (
           <button

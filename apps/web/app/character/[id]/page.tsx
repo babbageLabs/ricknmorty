@@ -38,52 +38,54 @@ export default async function Page({
                 <Breadcrumbs />
             </section>
 
-            <section className="w-full flex flex-col overflow-x-hidden overflow-y-auto h-full py-3">
+            <section className="w-full flex flex-col overflow-x-hidden overflow-y-auto h-full py-3 items-center">
                 <div className="flex flex-col items-center">
                     <Image src={character.image} alt={character.name} width={100} height={100} className="rounded-full" />
                     <h1 className="text-2xl font-bold">{character.name}</h1>
                     <p className="text-gray-500">{character.species}</p>
                 </div>
-                <Tabs
-                    tabs={[
-                        {
-                            label: "About",
-                            content: (
-                                <div className="flex flex-col justify-center">
-                                    <KV label="Gender">
-                                        {character.gender}
-                                    </KV>
-                                    <KV label="Status">
-                                        {character.status}
-                                    </KV>
-                                    <KV label="Locations">
-                                        {character.location.name}
-                                    </KV>
-                                </div>
-                            )
-                        },
-                        {
-                            label: "Episodes",
-                            content: (
-                                <div>
-                                    <ClientWrapper>
-                                        <Grid>
-                                            <div className='flex flex-wrap justify-center p-2'>
-                                                {character.episode.map((episode, i) => (<EpisodeCard
-                                                    key={`episode-${i}`} url={episode}
-                                                />))}
-                                            </div>
-                                        </Grid>
-                                    </ClientWrapper>
-                                </div>
-                            )
-                        },
-                        {
-                            label: "Notes",
-                            content: (<Notes notesId={`notes-${charId}`} />)
-                        }
-                    ]}
-                />
+                <div className="flex flex-col justify-center items-center h-full w-2/3">
+                    <Tabs
+                        tabs={[
+                            {
+                                label: "About",
+                                content: (
+                                    <div className="flex flex-col items-center">
+                                        <KV label="Gender">
+                                            {character.gender}
+                                        </KV>
+                                        <KV label="Status">
+                                            {character.status}
+                                        </KV>
+                                        <KV label="Locations">
+                                            {character.location.name}
+                                        </KV>
+                                    </div>
+                                )
+                            },
+                            {
+                                label: "Episodes",
+                                content: (
+                                    <div>
+                                        <ClientWrapper>
+                                            <Grid>
+                                                <div className='flex flex-wrap justify-center p-2'>
+                                                    {character.episode.map((episode, i) => (<EpisodeCard
+                                                        key={`episode-${i}`} url={episode}
+                                                    />))}
+                                                </div>
+                                            </Grid>
+                                        </ClientWrapper>
+                                    </div>
+                                )
+                            },
+                            {
+                                label: "Notes",
+                                content: (<Notes notesId={`notes-${charId}`} />)
+                            }
+                        ]}
+                    />
+                </div>
             </section>
         </main>
     );
