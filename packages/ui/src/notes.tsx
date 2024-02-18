@@ -10,7 +10,6 @@ export const Notes = (props: NotesProps) => {
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
-        console.log('props.key 111111111', props.notesId);
         const storedNotes = localStorage.getItem(props.notesId);
         if (storedNotes) {
             setNotes(JSON.parse(storedNotes));

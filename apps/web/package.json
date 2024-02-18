@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "playwright test",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
+    "@playwright/test": "^1.41.2",
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind": "workspace:*",
     "@repo/typescript-config": "workspace:*",
