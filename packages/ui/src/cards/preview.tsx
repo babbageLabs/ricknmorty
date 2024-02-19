@@ -11,14 +11,14 @@ export function LocationPreview({
 }: {
     location: Location;
 }): JSX.Element {
-    return (<section className="h-full w-full shadow overflow-y-auto">
+    return (<section id="preview" className="h-full w-full shadow overflow-y-auto">
         <div className='text-center w-full'>
-            <h1>{location.name}</h1>
-            <p>{location.type}</p>
-            <p>{location.dimension}</p>
+            <h1 className="text-2xl font-bold">{location.name}</h1>
+            <p className="text-gray-500">{location.type}</p>
+            <p className="text-gray-500">{location.dimension}</p>
         </div>
         <Grid>
-            <div className='flex flex-wrap justify-center items-center p-2'>
+            <div id='characters' className='flex flex-wrap justify-center items-center p-2'>
                 {location.residents.map((resident, i) => (<ResidentCard
                     key={`resident-${i}`} url={resident}
                 />))}

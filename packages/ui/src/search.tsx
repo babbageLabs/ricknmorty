@@ -31,10 +31,8 @@ const apiFilters = [
 
 
 export function SearchCmd({
-    className,
     setLocations
 }: {
-    className?: string;
     setLocations: (locations: Location[]) => void
 }): JSX.Element {
     const ref = useRef(null)
@@ -42,7 +40,7 @@ export function SearchCmd({
     const [loading, setLoading] = useState(false)
     const [filters, setFilters] = useState(Filter.LocationName)
 
-    async function getItems() {
+    async function getItems(reset: boolean = false) {
         setLoading(true)
         let locations: Location[] = []
         let locationIds: number[] = []
@@ -66,7 +64,7 @@ export function SearchCmd({
                 locationIds = (await getCharacter(characterIds)).data.map((c) => c.location.url.split('/').pop() as string).map((c) => +c)
                 break;
             default:
-                if (search.length === 0) {
+                if (search.length === 0 || reset) {
                     locations = (await getLocations({
                         page: 1
                     })).data.results || []
@@ -96,7 +94,7 @@ export function SearchCmd({
             <div className='p-1'>
                 <input
                     ref={ref}
-                    type="text"
+                    type="search"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyPress={(e) => {
@@ -113,7 +111,7 @@ export function SearchCmd({
             <div>
                 <select
                     title="Filter"
-                    className='p-1'
+                    className='px-4 py-2 ml-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500'
                     value={filters}
                     onChange={(e) => setFilters(e.target.value as Filter)}
                 >
@@ -127,17 +125,23 @@ export function SearchCmd({
 
             <div>
                 <button
-                    onClick={getItems}
+                    id='search-btn'
+                    disabled={loading}
+                    type='button'
+                    onClick={() => getItems()}
                     className="px-4 py-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                    Search
+                    {loading ? <span>Loading...</span> : <span>Search</span>}
                 </button>
                 {
                     search.length > 0 && <button
+                        id='reset-btn'
+                        disabled={loading}
+                        type='button'
                         onClick={() => {
                             setSearch('');
                             setFilters(Filter.LocationName);
-                            getItems();
+                            getItems(true);
                         }}
                         className="px-4 py-2 ml-2 text-white bg-red-500 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
                     >

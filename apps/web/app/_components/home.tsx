@@ -25,7 +25,7 @@ export function Home({
     return (
         <section className="flex overflow-x-hidden overflow-y-hidden w-full h-full">
             <article className="h-full flex-1 overflow-y-auto ">
-                <div className="w-full bg-gray-200 flex justify-center items-center rounded py-1" style={{ position: 'sticky', top: 0 }}>
+                <div className="w-full min-h-20 bg-gray-200 flex justify-center items-center rounded py-1" style={{ position: 'sticky', top: 0 }}>
                     <h1>Locations</h1>
                     <SearchCmd setLocations={setSearchResults} />
                 </div>
@@ -33,7 +33,7 @@ export function Home({
                     onLoadMore={() => { }}
                 >
                     {(searchResults.length ? searchResults : locations).map((loc) => (
-                        <div key={`location-${loc.id}`} id={`location-${loc.id}`} className="rounded w-full ">
+                        <div key={`location-${loc.id}`} className="rounded w-full locations">
                             <LocationCard
                                 selected={location}
                                 location={loc}
