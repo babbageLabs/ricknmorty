@@ -31,6 +31,9 @@ jobs:
       - name: build
         run: pnpm run build --filter web
 
+      - name: playwright browser install
+        run:  cd apps/web && pnpm exec playwright install
+
       - name: Run Playwright tests
         run: pnpm run test --filter web
         
