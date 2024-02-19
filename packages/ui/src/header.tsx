@@ -1,4 +1,8 @@
-export function Header({ children }: { children: React.ReactNode }): JSX.Element {
+export function Header({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <header className="w-full flex sticky top-0 bg-white shadow justify-center space-x-4 p-2">
       <section className="">

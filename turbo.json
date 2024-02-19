@@ -30,6 +30,13 @@
       "dependsOn": [
         "^build"
       ]
+    },
+    "coverage": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": [
+        "^test"
+      ]
     }
   }
 }

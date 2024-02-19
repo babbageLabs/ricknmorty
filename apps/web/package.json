@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "playwright test",
-    "lint": "eslint ."
+    "lint": "eslint . --fix",
+    "coverage": "nyc report --reporter=lcov > coverage.lcov && nyc report --reporter=text-lcov"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",

@@ -1,25 +1,24 @@
-'use client';
+"use client";
 import { useEffect, useId, useRef } from "react";
 
 export function Grid({
   children,
-  onLoadMore
+  onLoadMore,
 }: {
   children: React.ReactNode;
   onLoadMore?: () => void;
 }): JSX.Element {
-
   const id = useId();
   const observerTarget = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
         if (entries?.[0]?.isIntersecting) {
           onLoadMore && onLoadMore();
         }
       },
-      { threshold: 1 }
+      { threshold: 1 },
     );
 
     if (observerTarget.current) {
@@ -33,9 +32,12 @@ export function Grid({
     };
   }, [children]);
 
-
   return (
-    <section id={id} key={id} className="flex flex-col w-full overflow-y-auto overflow-x-hidden">
+    <section
+      id={id}
+      key={id}
+      className="flex flex-col w-full overflow-y-auto overflow-x-hidden"
+    >
       {children}
     </section>
   );

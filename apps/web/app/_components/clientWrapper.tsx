@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 export function ClientWrapper({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }): JSX.Element {
-    return <>{children}</>;
+  return <>{children}</>;
 }
