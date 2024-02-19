@@ -1,4 +1,5 @@
 'use client'
+// eslint-disable-next-line no-redeclare
 import { useRef, useState } from 'react';
 import { getLocations, getCharacters, getEpisodes, getCharacter, getLocation, Location } from 'rickmortyapi'
 

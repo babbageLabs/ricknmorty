@@ -6,7 +6,6 @@ import Image from "next/image";
 import { KV } from "@repo/ui/kv";
 import { Grid } from "@repo/ui/grid";
 import { EpisodeCard } from "@repo/ui/cards";
-import { ClientWrapper } from "../../_components/clientWrapper"
 import { Notes } from "@repo/ui/notes";
 
 export default async function Page({

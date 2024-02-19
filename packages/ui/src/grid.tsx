@@ -8,18 +8,14 @@ export function Grid({
   children: React.ReactNode;
   onLoadMore?: () => void;
 }): JSX.Element {
-  // const lastElementRef = useRef<HTMLDivElement | null>(null);
+
   const id = useId();
   const observerTarget = useRef(null);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState<null | { message: string }>(null);
-  // const [page, setPage] = useState(1);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         if (entries?.[0]?.isIntersecting) {
-          console.log("load more", 11111111111111111111111);
           onLoadMore && onLoadMore();
         }
       },

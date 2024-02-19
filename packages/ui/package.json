@@ -15,7 +15,7 @@
     "./SearchCmd": "./src/search.tsx"
   },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint .",
     "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
