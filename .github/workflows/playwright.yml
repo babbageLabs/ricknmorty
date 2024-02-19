@@ -13,12 +13,24 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Cache turbo build setup
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - name: Install dependencies
         run: npm install -g pnpm && pnpm install
-      # - name: Install Playwright Browsers
-      #   run: pnpm exec playwright install --with-deps
+
+      - name: build
+        run: pnpm run build --filter web
+
       - name: Run Playwright tests
         run: pnpm run test --filter web
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:
