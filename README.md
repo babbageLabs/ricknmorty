@@ -1,4 +1,4 @@
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main&event=push)
+![example workflow](https://github.com/babbageLabs/ricknmorty/actions/workflows/ci.yml/badge.svg?branch=main&event=push)
 
 
 

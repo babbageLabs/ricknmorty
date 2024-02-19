@@ -28,8 +28,8 @@ jobs:
       - name: lint
         run: pnpm run lint --filter web
 
-      # - name: build
-      #   run: pnpm run build --filter web
+      - name: build
+        run: pnpm run build --filter web
 
       - name: playwright browser install
         run: cd apps/web && pnpm exec playwright install
