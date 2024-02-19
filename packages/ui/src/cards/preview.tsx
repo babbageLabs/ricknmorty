@@ -16,16 +16,26 @@ export function LocationPreview({
         <p className="text-gray-500">{location.type}</p>
         <p className="text-gray-500">{location.dimension}</p>
       </div>
-      <Grid>
-        <div
-          id="characters"
-          className="flex flex-wrap justify-center items-center p-2"
-        >
-          {location.residents.map((resident, i) => (
-            <ResidentCard key={`resident-${i}`} url={resident} />
-          ))}
+      {
+        !!location.residents.length && <Grid>
+          <div
+            id="characters"
+            className="flex flex-wrap justify-center items-center p-2"
+          >
+            {location.residents.map((resident, i) => (
+              <ResidentCard key={`resident-${i}`} url={resident} />
+            ))}
+          </div>
+        </Grid>
+      }
+
+      {
+        !location.residents.length && <div className="w-full h-2/3 flex items-center justify-center flex-grow">
+          <div>
+            <h1 className="text-center">No residents found</h1>
+          </div>
         </div>
-      </Grid>
+      }
     </section>
   );
 }

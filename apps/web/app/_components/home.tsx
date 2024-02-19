@@ -24,7 +24,7 @@ export function Home({ locations }: { locations: Location[] }): JSX.Element {
           <h1>Locations</h1>
           <SearchCmd setLocations={setSearchResults} />
         </div>
-        <Grid onLoadMore={() => {}}>
+        <Grid onLoadMore={() => { }}>
           {(searchResults.length ? searchResults : locations).map((loc) => (
             <div
               key={`location-${loc.id}`}
@@ -41,9 +41,12 @@ export function Home({ locations }: { locations: Location[] }): JSX.Element {
       </article>
 
       <aside className="w-3/5 h-full overflow-y-hidden">
-        <div className="w-full h-20 bg-gray-200 flex justify-center items-center rounded py-1">
-          <h1>Location Preview</h1>
+        {!location && <div className="h-full w-full flex items-center justify-center" >
+          <div>
+            <h1 className="text-center">Select a location to preview</h1>
+          </div>
         </div>
+        }
         {!!location && <LocationPreview location={location} />}
       </aside>
     </section>

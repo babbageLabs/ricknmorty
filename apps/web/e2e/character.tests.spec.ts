@@ -59,7 +59,7 @@ test.describe("Character page", () => {
     await expect(page.getByTestId(`notes-${character.id}`)).toBeVisible();
     await expect(page.getByRole("textbox")).toBeVisible();
     await page.fill("textarea", "This is a test note");
-    await page.keyboard.press("Enter");
+    await page.getByRole("button", { name: "Add" }).click();
     await expect(page.getByText("This is a test note")).toBeVisible();
     await page.getByRole("button", { name: "Delete" }).click({ delay: 1000 });
     const note = await page.getByText("This is a test note").count();

@@ -14,7 +14,7 @@ test.describe("Home page", () => {
       page.getByRole("heading", { name: "Locations" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Location Preview" }),
+      page.getByText("Select a location to preview"),
     ).toBeVisible();
   });
 

@@ -33,9 +33,6 @@ export function LocationCard({
             <p className="text-gray-900 leading-none">
               Dimension : {location.dimension}
             </p>
-            <p className="text-gray-600">
-              Created: {new Date(location.created).toLocaleDateString()}
-            </p>
           </div>
         </div>
       </div>

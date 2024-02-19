@@ -45,14 +45,10 @@ export const Notes = (props: NotesProps) => {
       </label>
       <textarea
         id="note-input"
-        placeholder=""
+        placeholder="Add your notes"
         value={inputValue}
         onChange={handleInputChange}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            handleAddNote();
-          }
-        }}
+        rows={5}
         className="border border-gray-300 rounded px-2 py-1 mb-2 w-2/3"
       />
       <button
