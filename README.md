@@ -1,81 +1,85 @@
-# Turborepo starter
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main&event=push)
 
-This is an official starter Turborepo.
 
-## Using this example
+
+# About
+
+This is a monorepo containing a Next.js app and a React component library. It is powered by [Turborepo](https://turbo.build/repo).
+It implements a web application to explore the Rick and Morty universe and consumes the [Rick and Morty API](https://rickandmortyapi.com/).
+
+Using the application you can:
+
+- Explore various locations in the Rick and Morty universe
+- View the characters in the universe
+- View the episodes in the universe
+- Add notes about your favorite characters
+
+[Live Demo](https://ricknmorty.vercel.app/)
+
+## Using this app
 
 Run the following command:
 
 ```sh
-npx create-turbo@latest
+pnpm install
+pnpm run dev --filter web
 ```
+
+Then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+This application has 2 workspaces i.e packages and apps:
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `web`: A [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library used by `web`
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- ` @repo/tailwind `: tailwind configuration
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Utilities
 
-This Turborepo has some additional tools already setup for you:
-
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
+- [Playwright](https://playwright.dev/) for end-to-end testing
+- [Turbo](https://turbo.build/repo) for monorepo management
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd ricknmorty
 pnpm build
 ```
 
-### Develop
+### Production
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+To  run all apps, run the following command:
 
 ```
-cd my-turborepo
-npx turbo login
+cd ricknmorty
+pnpm build
+pnpm start
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Testing
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+To run tests for all apps and packages, run the following command:
 
+```bash
+cd ricknmorty
+pnpm run test --filter web
 ```
-npx turbo link
-```
 
-## Useful Links
+## Implementation Details
 
-Learn more about the power of Turborepo:
+The application consumes the [Rick and Morty REST API](https://rickandmortyapi.com/). The reason for opting for REST as opposed to GraphQL is that the REST API is simple and easy to use. The REST API is also well documented and has a lot of resources available for it.
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+In addition to the ease of use and predicatable error handling, use of caching for static data meaning the problem of over-fetching is mitigated.
+
+ for note taking, the application uses the browser's local storage . This is because the notes are not sensitive and do not need to be persisted on the server. The notes are also not shared between users. Additionally, since the application is public and does not require authentication then local storage is the most reliable solution to  retrieve notes for any given anonymous users.
