@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "nyc next dev",
     "build": "next build",
     "start": "next start",
-    "test": "playwright test",
+    "pretest": "rm -rf .next/ coverage/ .nyc_output/",
+    "test": "cross-env NODE_ENV=test  playwright test",
     "lint": "eslint . --fix",
-    "coverage": "nyc report --reporter=lcov > coverage.lcov && nyc report --reporter=text-lcov"
+    "coverage": "nyc pnpm run test "
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
@@ -18,6 +19,7 @@
     "rickmortyapi": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.9",
     "@next/eslint-plugin-next": "^14.0.4",
     "@playwright/test": "^1.41.2",
     "@repo/eslint-config": "workspace:*",
@@ -28,9 +30,13 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "istanbul-reports": "^3.1.6",
+    "nyc": "^15.1.0",
     "playwright": "^1.41.2",
+    "playwright-test-coverage": "^1.2.12",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
