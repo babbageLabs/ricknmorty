@@ -12,14 +12,14 @@ export function EpisodeCard({
 }): JSX.Element {
     const [episode, setEpisode] = useState<Episode>()
     const [isLoading, setIsLoading] = useState(false)
+    const id = url.split('/').pop();
+
+    if (!id || isNaN(+id)) {
+        return <></>
+    }
 
 
     useEffect(() => {
-        let id = url.split('/').pop();
-
-        if (!id || isNaN(+id)) {
-            return
-        }
         setIsLoading(true)
         getEpisode(+id)
             .then((data) => {
@@ -32,7 +32,7 @@ export function EpisodeCard({
     }, [url])
 
     return (
-        <>
+        <div data-testid={`episode`}>
             {episode && !isLoading ? (
                 <div className="max-w-sm rounded overflow-hidden shadow p-2 m-1">
                     <div className="px-6 py-4 w-auto">
@@ -56,6 +56,6 @@ export function EpisodeCard({
                     </div>
                 </div>
             )}
-        </>
+        </div>
     );
 }

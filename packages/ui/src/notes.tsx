@@ -39,7 +39,7 @@ export const Notes = (props: NotesProps) => {
     };
 
     return (
-        <div className="flex flex-col items-center ">
+        <div data-testid={props.notesId} className="flex flex-col items-center">
             <label htmlFor="note-input" className="mb-2">Add a note</label>
             <textarea
                 id='note-input'
@@ -58,7 +58,7 @@ export const Notes = (props: NotesProps) => {
                 {notes.map((note, index) => (
                     <li key={index} className="flex items-center justify-between border-b border-gray-300 py-2 justify-center">
                         <span>{note}</span>
-                        <button onClick={() => handleDeleteNote(index)} className="text-red-500">Delete</button>
+                        <button type='button' onClick={() => handleDeleteNote(index)} className="text-red-500">Delete</button>
                     </li>
                 ))}
             </ul>

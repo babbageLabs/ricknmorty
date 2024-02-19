@@ -18,6 +18,7 @@ export function Tabs({ tabs }: TabsProps): JSX.Element {
       <div className="flex border-b">
         {tabs.map((tab, index) => (
           <button
+            type='button'
             key={index}
             onClick={() => setActiveTab(index)}
             className={`px-4 py-2 ${activeTab === index ? 'border-b-2 border-blue-500' : ''}`}

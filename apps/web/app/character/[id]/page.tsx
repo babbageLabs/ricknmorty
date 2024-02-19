@@ -25,8 +25,6 @@ export default async function Page({
     }
     const character = (await getCharacter(+charId)).data
 
-    console.log(character)
-
     return (
         <main className="h-full w-full px-2 overflow-x-hidden overflow-y-hidden flex flex-col">
             <section className="w-full">
@@ -67,15 +65,13 @@ export default async function Page({
                                 label: "Episodes",
                                 content: (
                                     <div>
-                                        <ClientWrapper>
-                                            <Grid>
-                                                <div className='flex flex-wrap justify-center p-2'>
-                                                    {character.episode.map((episode, i) => (<EpisodeCard
-                                                        key={`episode-${i}`} url={episode}
-                                                    />))}
-                                                </div>
-                                            </Grid>
-                                        </ClientWrapper>
+                                        <Grid>
+                                            <div data-testid="episodes" className='flex flex-wrap justify-center p-2 episodes'>
+                                                {character.episode.map((episode, i) => (<EpisodeCard
+                                                    key={`episode-${i}`} url={episode}
+                                                />))}
+                                            </div>
+                                        </Grid>
                                     </div>
                                 )
                             },

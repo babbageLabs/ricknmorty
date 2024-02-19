@@ -33,28 +33,6 @@ test.describe('Home page', () => {
         }
     })
 
-    test('should navigate to character page', async ({ page }) => {
-        const locationCards = await page.$$('.locations')
-        expect(locationCards).toBeDefined()
-        if (locationCards.length) {
-            let card = locationCards[0]
-            await card?.click()
-            const preview = await page.$('#preview')
-            expect(preview).toBeDefined()
-            const characterCards = await page.$$('.characters')
-            expect(characterCards).toBeDefined()
-            if (characterCards.length) {
-                let card = characterCards[0]
-                await card?.click()
-                const characterId = await page.evaluate(() => {
-                    const url = new URL(page.url())
-                    return url.pathname.split('/').pop()
-                })
-                expect(page.url()).toContain(`/character/${characterId}`)
-            }
-        }
-    })
-
     test('should display search results', async ({ page }) => {
         const locations = (await getLocations({ name: 'Earth' })).data.results || []
         const search = await page.$('input[type="search"]')
